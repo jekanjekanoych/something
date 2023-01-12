@@ -26,6 +26,8 @@ class JsonParser:
     #     return res
 
 
+
+
 if __name__ == '__main__':
     with JsonParser('"hello"') as res:
         assert res == "hello"
