@@ -2,30 +2,19 @@ import json                               # first_class
 
 
 class JsonParser:
-    def __init__(self, res):
-        self.res = res
+    def __init__(self, _res):
+        self.res = _res
         self.file = None
         # a = json.loads(self.res)
-
-
 
     def __enter__(self):
         self.file = self.res
 
-        res = json.loads(self.res)
-        return res
+        _res = json.loads(self.res)
+        return _res
 
     def __exit__(self, exc_type, exc_value, exc_traceback):
         return self
-
-
-
-    # def res(a):
-    #     r = json.load(a)
-    #     print(r)
-    #     return res
-
-
 
 
 if __name__ == '__main__':
@@ -37,23 +26,32 @@ if __name__ == '__main__':
 
 
 class Point:                                    # second_class
-    def __init__(self, start_point, end_point):
+    def __init__(self, x_coor, y_coor):
+        self.x_coor = x_coor
+        self.y_coor = y_coor
+
+
+class Rectangle:
+    def __init__(self, _start_point, _end_point):
         self.start_point = start_point
         self.end_point = end_point
 
+    def __ge__(self, other):
+        assert isinstance(other, Rectangle)
+        return self.start_point >= other.start_point
 
-class Rectangle(Point):
-    # def __init__(self, start_point, end_point):
-    #     self.start_point = start_point
-    #     self.end_point = end_point
+    def __eq__(self, other):
+        assert isinstance(other, Rectangle)
+        return self.start_point == other.start_point
 
-    def contains(self, start_point):
-        if self.start_point(start_point) <= start_point(start_point) or self.end_point(start_point) >= start_point(start_point):
-            return start_point
-        elif self.start_point(start_point) < Point.start_point or self.end_point(start_point) > Point.start_point:
-            return
-        else:
-            return
+    def contains(self, point):
+
+        if self.start_point.x_coor <= point.x_coor <= self.end_point.x_coor:
+            if self.start_point.y_coor \
+                    <= point.y_coor <= self.end_point.y_coor:
+                return True
+
+        return False
 
 
 if __name__ == '__main__':
