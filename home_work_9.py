@@ -23,7 +23,7 @@ def get_ranges_wo_insurance(insurance_periods: list[DateRange]) -> list[DateRang
         list_1.append(date.ending_date.day)
         list_2.append(date.beginning_date.day)
         if list_1 > list_2:
-            print(list_1)
+            print(list_2)
 
         return []
 
