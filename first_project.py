@@ -1,2 +1,2 @@
 def():
-    print('hello there')
+    print('hello from')
