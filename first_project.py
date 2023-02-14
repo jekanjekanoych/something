@@ -1,1 +1,2 @@
-print('hello there')
+def():
+    print('hello there')
